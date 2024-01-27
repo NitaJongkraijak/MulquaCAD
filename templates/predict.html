@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drugs-PCSK9/NARC1 Bioactivity Prediction</title>
+    <!-- Add the Tailwind CSS stylesheet -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="bg-white p-8 rounded shadow-md max-w-full">
+        <h1 class="text-2xl font-bold mb-6">Drugs-PCSK9/NARC1 Bioactivity Prediction</h1>
+        <div>
+            <form method="POST" action="/predict/result">
+                <div class="mb-4">
+                    <label for="content1" class="block text-sm font-medium text-gray-700">Input SMILES</label>
+                    <textarea rows="2" id="smiles" name="smiles" class="border p-2 w-full resize-none"
+                        placeholder="Input SMILES" value="{{ smiles }}">{{ smiles }}</textarea>
+                </div>
+                <div class="mb-4">
+                    <label for="content2" class="block text-sm font-medium text-gray-700">Input HOMO energy</label>
+                    <textarea rows="2" id="homo" name="homo" class="border p-2 w-full resize-none"
+                        placeholder="Input HOMO energy" value="{{ homo }}">{{ homo }}</textarea>
+                </div>
+                <div class="mb-4">
+                    <label for="content3" class="block text-sm font-medium text-gray-700">Input LUMO energy</label>
+                    <textarea rows="2" id="lumo" name="lumo" class="border p-2 w-full resize-none"
+                        placeholder="Input LUMO energy" value="{{ lumo }}">{{ lumo }}</textarea>
+                </div>
+                <div class="mb-4">
+                    <label for="content4" class="block text-sm font-medium text-gray-700">Input Energy gap</label>
+                    <textarea rows="2" id="energy" name="energy" class="border p-2 w-full resize-none"
+                        placeholder="Energy gap" value="{{ energy }}">{{ energy }}</textarea>
+                </div>
+                <div>
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700" type="submit">
+                        Submit
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div>
+            <p id="smiles-display">SMILES: {{ smiles }} </p>
+            <p id="pIC50-display">pIC50: {{ prediction }} </p>
+        </div>
+    </div>
+</body>
+
+</html>
+
